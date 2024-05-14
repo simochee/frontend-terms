@@ -1,5 +1,4 @@
-import { getCollection } from "astro:content";
-import type { ContentEntryModule } from "astro";
+import { type CollectionEntry, getCollection } from "astro:content";
 
 type TermsFrontMatter = {
 	title: string;
@@ -7,32 +6,21 @@ type TermsFrontMatter = {
 	en: string;
 };
 
-type TermsEntityModule = Omit<ContentEntryModule, "data"> & {
-	data: TermsFrontMatter;
-};
-
-type TermsEntity = {
-	slug: string;
-	title: string;
-	ja: string;
-	en: string;
-	markdown: string;
+type TermsEntity = Omit<CollectionEntry<"terms">, "data"> & {
+	frontmatter: TermsFrontMatter;
 };
 
 /**
  * 用語のマークダウンコレクションを取得する
  */
 export const getTermsCollection = async () => {
-	const terms: TermsEntityModule[] = await getCollection("terms");
+	const terms = await getCollection("terms");
 
 	return terms.map(
-		({ slug, data: { title, ja, en }, body }) =>
+		({ data, ...term }) =>
 			({
-				slug,
-				title,
-				ja,
-				en,
-				markdown: body,
+				...term,
+				frontmatter: data as TermsFrontMatter,
 			}) satisfies TermsEntity,
 	);
 };
