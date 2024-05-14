@@ -10,7 +10,7 @@ const terms = await getTermsCollection();
   <ul>
     {terms.map((term) => (
       <li>
-        <a href={`/terms/${term.slug}`}>{term.data.title}</a>
+        <a href={`/terms/${term.slug}`}>{term.title}</a>
       </li>
     ))}
   </ul>

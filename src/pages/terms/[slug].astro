@@ -24,7 +24,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 const { term } = Astro.props;
 ---
 
-<Layout title={term.data.title}>
-  <h1>{term.data.title}</h1>
-  <div>{term.body}</div>
+<Layout title={term.title}>
+  <h1>{term.title}</h1>
+  <div>{term.markdown}</div>
 </Layout>
