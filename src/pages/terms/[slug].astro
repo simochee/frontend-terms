@@ -1,0 +1,30 @@
+---
+import type {
+	GetStaticPaths,
+	InferGetStaticParamsType,
+	InferGetStaticPropsType,
+	MarkdownInstance,
+} from "astro";
+import Layout from "~layouts/Layout.astro";
+import { getTermsCollection } from "~utils/terms";
+
+export const getStaticPaths = (async () => {
+	const terms = await getTermsCollection();
+
+	return terms.map((term) => ({
+		params: { slug: term.slug },
+		props: {
+			term,
+		},
+	}));
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { term } = Astro.props;
+---
+
+<Layout title={term.title}>
+  <h1>{term.title}</h1>
+  <div>{term.markdown}</div>
+</Layout>
