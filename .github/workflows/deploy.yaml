@@ -16,12 +16,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: enable pnpm
+        run: corepack enable
       - uses: actions/setup-node@v4
         with:
           node-version-file: package.json
           cache: pnpm
-      - name: enable pnpm
-        run: corepack enable
       - name: install dependencies
         run: pnpm install --frozen-lockfile
       - name: get repository name
@@ -30,8 +30,8 @@ jobs:
       - name: build astro
         run: pnpm build
         env:
-          ASTRO_SITE: https://$GITHUB_REPOSITORY_OWNER.github.io
-          ASTRO_BASE: /$REPOSITORY_NAME
+          ASTRO_SITE: https://${{ env.GITHUB_REPOSITORY_OWNER }}.github.io
+          ASTRO_BASE: /${{ env.REPOSITORY_NAME }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist/
