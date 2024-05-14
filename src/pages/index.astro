@@ -1,1 +1,17 @@
-<p>FrontEnd Terms</p>
+---
+import Layout from "~layouts/Layout.astro";
+import { getTermsCollection } from "~utils/terms";
+
+const terms = await getTermsCollection();
+---
+
+<Layout title='FrontEnd Terms'>
+  <p>FrontEnd Terms</p>
+  <ul>
+    {terms.map((term) => (
+      <li>
+        <a href={`/terms/${term.slug}`}>{term.data.title}</a>
+      </li>
+    ))}
+  </ul>
+</Layout>
