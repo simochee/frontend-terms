@@ -11,7 +11,7 @@ const terms = await getTermsCollection();
   <ul>
     {terms.map((term) => (
       <li>
-        <a href={getUrl('terms', term.slug)}>{term.title}</a>
+        <a href={getUrl('terms', term.slug)}>{term.frontmatter.title}</a>
       </li>
     ))}
   </ul>

@@ -6,6 +6,9 @@
 		"dev": "astro dev",
 		"postinstall": "lefthook install"
 	},
+	"dependencies": {
+		"unist-util-visit": "^5.0.0"
+	},
 	"devDependencies": {
 		"@astrojs/tailwind": "^5.1.0",
 		"@biomejs/biome": "^1.7.3",
