@@ -1,6 +1,7 @@
 ---
 import Layout from "~layouts/Layout.astro";
 import { getTermsCollection } from "~utils/terms";
+import { getUrl } from "~utils/url";
 
 const terms = await getTermsCollection();
 ---
@@ -10,7 +11,7 @@ const terms = await getTermsCollection();
   <ul>
     {terms.map((term) => (
       <li>
-        <a href={`/terms/${term.slug}`}>{term.title}</a>
+        <a href={getUrl('terms', term.slug)}>{term.title}</a>
       </li>
     ))}
   </ul>
