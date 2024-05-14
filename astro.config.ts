@@ -5,6 +5,7 @@ import tsconfigPaths from "vite-tsconfig-paths";
 export default defineConfig({
 	site: process.env.ASTRO_SITE,
 	base: process.env.ASTRO_BASE,
+	trailingSlash: "always",
 	integrations: [tailwind()],
 	vite: {
 		plugins: [tsconfigPaths()],
