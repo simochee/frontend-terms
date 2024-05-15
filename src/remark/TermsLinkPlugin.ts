@@ -5,7 +5,7 @@ import matter from "gray-matter";
 import type { PhrasingContent } from "mdast";
 import { is } from "unist-util-is";
 import { visit } from "unist-util-visit";
-import { getUrl } from "./url";
+import { getUrl } from "../utils/url";
 
 const modules = await import.meta.glob("../content/terms/*.md");
 const paths = Object.keys(modules);
