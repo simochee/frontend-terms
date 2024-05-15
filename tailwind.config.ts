@@ -1,3 +1,5 @@
+import typography from "@tailwindcss/typography";
+import daisyUI from "daisyui";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -5,5 +7,5 @@ export default {
 	theme: {
 		extend: {},
 	},
-	plugins: [],
+	plugins: [typography, daisyUI],
 } satisfies Config;
