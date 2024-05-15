@@ -1,5 +1,5 @@
 import typography from "@tailwindcss/typography";
-import daisyUI from "daisyui";
+import daisyUI, { type Config as DaisyUIConfig } from "daisyui";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -8,4 +8,8 @@ export default {
 		extend: {},
 	},
 	plugins: [typography, daisyUI],
+	daisyui: {
+		themes: ["nord", "dracula"],
+		darkTheme: "dracula",
+	} satisfies DaisyUIConfig,
 } satisfies Config;
