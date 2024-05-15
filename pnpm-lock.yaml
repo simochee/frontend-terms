@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/ibm-plex-mono':
+        specifier: ^5.0.13
+        version: 5.0.13
+      '@fontsource/ibm-plex-sans-jp':
+        specifier: ^5.0.13
+        version: 5.0.13
       unist-util-visit:
         specifier: ^5.0.0
         version: 5.0.0
@@ -601,6 +607,12 @@ packages:
     engines: {node: '>=12'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/ibm-plex-mono@5.0.13':
+    resolution: {integrity: sha512-gtlMmvk//2AgDEZDFsoL5z9mgW3ZZg/9SC7pIfDwNKp5DtZpApgqd1Fua3HhPwYRIHrT76IQ1tMTzQKLEGtJGQ==}
+
+  '@fontsource/ibm-plex-sans-jp@5.0.13':
+    resolution: {integrity: sha512-4G1X0hvE5JroSmt3t9egn2nOCybSJAtqQYSgnzGCMTgC+tnYeN8dwAAHH+eK9NIcT4p/3ytLeIEcOh33bx+5hA==}
 
   '@img/sharp-darwin-arm64@0.33.3':
     resolution: {integrity: sha512-FaNiGX1MrOuJ3hxuNzWgsT/mg5OHG/Izh59WW2mk1UwYHUwtfbhk5QNKYZgxf0pLOhx9ctGiGa2OykD71vOnSw==}
@@ -4105,6 +4117,10 @@ snapshots:
 
   '@esbuild/win32-x64@0.21.2':
     optional: true
+
+  '@fontsource/ibm-plex-mono@5.0.13': {}
+
+  '@fontsource/ibm-plex-sans-jp@5.0.13': {}
 
   '@img/sharp-darwin-arm64@0.33.3':
     optionalDependencies:

@@ -1,4 +1,8 @@
 ---
+import "@fontsource/ibm-plex-sans-jp/japanese-400.css";
+import "@fontsource/ibm-plex-sans-jp/japanese-700.css";
+import "@fontsource/ibm-plex-mono";
+
 type Props = {
 	title: string;
 };
@@ -13,7 +17,7 @@ const { title } = Astro.props;
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
 </head>
-<body>
+<body class="font-sans antialiased">
   <main>
     <slot />
   </main>
