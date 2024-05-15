@@ -17,7 +17,9 @@ const termsEntries = await Promise.all(
 		if ("title" in data && typeof data.title === "string") {
 			const slug = basename(path, ".md");
 
-			return [data.title, slug];
+			if (import.meta.env.DEV || !slug.startsWith("-")) {
+				return [data.title, slug.replace(/^-/, "")];
+			}
 		}
 
 		return [];

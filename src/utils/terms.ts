@@ -6,7 +6,8 @@ type TermsFrontMatter = {
 	en: string;
 };
 
-type TermsEntity = Omit<CollectionEntry<"terms">, "data"> & {
+type TermsEntity = Omit<CollectionEntry<"terms">, "data" | "slug"> & {
+	slug: string;
 	frontmatter: TermsFrontMatter;
 };
 
@@ -16,11 +17,14 @@ type TermsEntity = Omit<CollectionEntry<"terms">, "data"> & {
 export const getTermsCollection = async () => {
 	const terms = await getCollection("terms");
 
-	return terms.map(
-		({ data, ...term }) =>
-			({
-				...term,
-				frontmatter: data as TermsFrontMatter,
-			}) satisfies TermsEntity,
-	);
+	return terms
+		.filter(({ slug }) => import.meta.env.DEV || !slug.startsWith("-"))
+		.map(
+			({ data, ...term }) =>
+				({
+					...term,
+					slug: term.slug.replace(/^-/, ""),
+					frontmatter: data as TermsFrontMatter,
+				}) satisfies TermsEntity,
+		);
 };
