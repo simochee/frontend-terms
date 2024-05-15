@@ -7,6 +7,8 @@
 		"postinstall": "lefthook install"
 	},
 	"dependencies": {
+		"@fontsource/ibm-plex-mono": "^5.0.13",
+		"@fontsource/ibm-plex-sans-jp": "^5.0.13",
 		"unist-util-visit": "^5.0.0"
 	},
 	"devDependencies": {
@@ -14,8 +16,10 @@
 		"@biomejs/biome": "^1.7.3",
 		"@commitlint/cli": "^19.3.0",
 		"@commitlint/config-conventional": "^19.2.2",
+		"@tailwindcss/typography": "^0.5.13",
 		"@textlint/textlint-plugin-markdown": "^14.0.4",
 		"astro": "^4.8.3",
+		"daisyui": "^4.11.1",
 		"lefthook": "^1.6.11",
 		"sort-package-json": "^2.10.0",
 		"tailwindcss": "^3.4.3",

@@ -7,12 +7,13 @@ const terms = await getTermsCollection();
 ---
 
 <Layout title='FrontEnd Terms'>
-  <p>FrontEnd Terms</p>
-  <ul>
-    {terms.map((term) => (
-      <li>
-        <a href={getUrl('terms', term.slug)}>{term.frontmatter.title}</a>
-      </li>
-    ))}
-  </ul>
+  <div class="max-w-screen-sm mx-auto">
+    <ul class="menu">
+      {terms.map((term) => (
+        <li>
+          <a href={getUrl('terms', term.slug)}>{term.frontmatter.title}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
 </Layout>

@@ -1,4 +1,9 @@
 ---
+import "@fontsource/ibm-plex-sans-jp/japanese-400.css";
+import "@fontsource/ibm-plex-sans-jp/japanese-700.css";
+import "@fontsource/ibm-plex-mono";
+import { getUrl } from "~utils/url";
+
 type Props = {
 	title: string;
 };
@@ -6,16 +11,42 @@ const { title } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="h-full">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
 </head>
-<body>
-  <main>
-    <slot />
-  </main>
+<body class="font-sans antialiased h-full">
+  <div class="flex flex-col h-full">
+    <div class="flex-1">
+      <header class="navbar bg-base-100">
+        <div class="flex-1">
+          <a href={getUrl('')} class="btn btn-ghost text-xl">FrontEnd Terms</a>
+        </div>
+        <div class="flex-none">
+          <ul class="menu menu-horizontal px-1">
+            <li>
+              <a href="/">このサイトについて</a>
+            </li>
+          </ul>
+        </div>
+      </header>
+      <main class="py-8 px-4">
+        <slot />
+      </main>
+    </div>
+    <div class="flex-shrink-0">
+      <footer class="footer items-center p-4 bg-base-300 text-neutral-content">
+        <aside class="items-center grid-flow-col">
+          <p>&copy; 2024 simochee</p>
+        </aside>
+        <nav class="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
+          <a href="https://github.com/simochee/frontend-terms" target="_blank">GitHub</a>
+        </nav>
+      </footer>
+    </div>
+  </div>
 </body>
 </html>

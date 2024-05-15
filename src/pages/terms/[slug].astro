@@ -23,6 +23,8 @@ const { Content } = await term.render();
 ---
 
 <Layout title={term.frontmatter.title}>
-  <h1>{term.frontmatter.title}</h1>
-	<Content />
+	<article class="prose mx-auto">
+		<h1>{term.frontmatter.title}</h1>
+		<Content />
+	</article>
 </Layout>
